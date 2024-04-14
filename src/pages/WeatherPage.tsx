@@ -69,9 +69,9 @@ const WeatherPage = () => {
 
             <div className="relative h-11 w-full min-w-[200px]">
                 <input placeholder="Type here..." value={place} onChange={(e)=>setPlace(e.target.value)}
-                    className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+                    className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0  placeholder:opacity-0 focus:placeholder:opacity-100 " />
                 <label
-                    className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                    className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-500 transition-all  after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-5010 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 ">
                 Add Place
                 </label>
             </div>
@@ -79,8 +79,10 @@ const WeatherPage = () => {
             <button type='submit' className='rounded-full border-2  bg-red-500 text-white font-bold border-red-500 h-8 w-8  flex items-center text-md justify-center ml-2 hover:scale-105 hover:shadow-xl  '><CiSearch/></button>
         </form>  
         </div> 
-        {placesArr.length>0?<p className='font-bold text-xl text-left w-full px-4 lg:px-12'>Added Places</p>:null}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full px-4 my-4 lg:px-12'>{placesArr.length>0?(placesArr.map((item,index)=><WeatherCard data={item} key={index}/>)):<p className='font-bold text-xl'>No Places Added</p>}</div>  
+       
+        {placesArr.length>0?(<div className='w-full '><p className='font-bold text-xl text-left w-full px-4 lg:px-12 '>Added Places</p><div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full px-4 my-4 lg:px-12'>{placesArr.map((item,index)=><WeatherCard data={item} key={index}/>)}</div></div>
+        ):<div className='w-full '><p className=' font-bold text-xl text-left w-full px-4 lg:px-12'>No Places Added</p></div>}
+         
     </div>
   )
 }
